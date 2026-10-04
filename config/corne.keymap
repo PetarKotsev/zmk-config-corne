@@ -22,13 +22,18 @@
     };
 
     macros {
-        unlock: unlock {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LEFT_CONTROL &kp LEFT_ALT &kp DELETE>;
+		unlock: unlock {
+			compatible = "zmk,behavior-macro";
+			#binding-cells = <0>;
+			bindings
+				= <&macro_press &kp LCTRL &kp LALT>
+				, <&macro_tap &kp DELETE>
+				, <&macro_release &kp LCTRL &kp LALT>;
             label = "UNLOCK";
-        };
+		};
     };
+    
+
 
     behaviors {
         hml: homewrow_mods_left {
